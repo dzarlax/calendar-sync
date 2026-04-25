@@ -26,7 +26,11 @@ func (s *Syncer) Sync(ctx context.Context) error {
 	start := time.Now()
 
 	snap := s.state.GetState()
-	events, err := s.client.GetEvents(ctx, s.source, snap.LastSync, time.Now())
+	syncStart := snap.LastSync
+	if syncStart.IsZero() {
+		syncStart = time.Now().AddDate(0, 0, -30)
+	}
+	events, err := s.client.GetEvents(ctx, s.source, syncStart, time.Now())
 	if err != nil {
 		return err
 	}
