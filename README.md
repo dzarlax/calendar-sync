@@ -1,6 +1,6 @@
 # calendar-sync
 
-One-way sync from Microsoft 365 calendar to Google Calendar.
+One-way sync from Microsoft 365 calendar to Google Calendar, built on top of [calendar-mcp](https://github.com/dzarlax/calendar-mcp).
 
 ## Why this exists
 
