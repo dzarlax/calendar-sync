@@ -106,7 +106,6 @@ func toEventCreate(evt Event) EventCreate {
 		End:         evt.End,
 		Description: evt.Description,
 		Location:    evt.Location,
-		Attendees:   evt.Attendees,
 	}
 }
 
@@ -117,6 +116,5 @@ func toEventUpdate(evt Event) EventUpdate {
 		End:         &evt.End,
 		Description: &evt.Description,
 		Location:    &evt.Location,
-		Attendees:   evt.Attendees,
 	}
 }
