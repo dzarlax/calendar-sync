@@ -27,6 +27,7 @@ func (s *Scheduler) Start(ctx context.Context) {
 	defer ticker.Stop()
 
 	log.Printf("[scheduler] started, interval=%v", s.interval)
+	s.runSync(ctx)
 
 	for {
 		select {
