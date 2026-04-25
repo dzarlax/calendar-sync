@@ -57,7 +57,7 @@ docker compose up -d
 ```
 
 Requires calendar-mcp on the same `infra` Docker network.
-Image: `ghcr.io/dzarlax-ai/calendar-sync:latest` — built automatically on push to `main`.
+Image: `ghcr.io/dzarlax/calendar-sync:latest` — built automatically on push to `main`.
 
 ## State file
 

@@ -23,4 +23,4 @@ REST_API_URL=http://localhost:8080 API_KEY=test SYNC_SOURCE=microsoft:<id> SYNC_
 ## Deploy
 
 Config: `personal_ai_stack/deploy/calendar-sync/`
-Image: `ghcr.io/dzarlax-ai/calendar-sync:latest`
+Image: `ghcr.io/dzarlax/calendar-sync:latest`
