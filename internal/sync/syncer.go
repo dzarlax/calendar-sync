@@ -25,17 +25,13 @@ func NewSyncer(client *RestClient, state *StateManager, source, target string) *
 func (s *Syncer) Sync(ctx context.Context) error {
 	start := time.Now()
 
-	snap := s.state.GetState()
-	syncStart := snap.LastSync
-	if syncStart.IsZero() {
-		syncStart = time.Now().AddDate(0, 0, -30)
-	}
-	events, err := s.client.GetEvents(ctx, s.source, syncStart, time.Now())
+	now := time.Now()
+	events, err := s.client.GetEvents(ctx, s.source, now, now.AddDate(0, 0, 14))
 	if err != nil {
 		return err
 	}
 
-	log.Printf("[syncer] fetched %d events from %s since %v", len(events), s.source, snap.LastSync)
+	log.Printf("[syncer] fetched %d events from %s (next 14 days)", len(events), s.source)
 
 	currentM365IDs := make(map[string]struct{})
 	for _, evt := range events {
